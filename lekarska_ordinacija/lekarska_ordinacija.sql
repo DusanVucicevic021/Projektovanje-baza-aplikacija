@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 15, 2024 at 03:06 PM
+-- Generation Time: Jun 03, 2024 at 02:32 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -42,7 +42,38 @@ INSERT INTO `dijagnoze` (`id`, `br_kartona`, `naziv`, `opis`) VALUES
 (1, 2, 'Akutni stresni poremećaj', 'Akutni stresni poremećaj (ASPD) je mentalni poremećaj koji se može razviti kod osoba koje su doživele ili su bile izložene traumatičnom događaju ili situaciji. Ovaj poremećaj karakteriše kratkotrajna, ali intenzivna reakcija na stres, obično se javlja u periodu od nekoliko dana do nekoliko nedelja nakon traume. '),
 (2, 1, 'Policistični ovarijalni sindrom (PCOS)', 'To je hormonalni poremećaj koji utječe na reproduktivni sustav žene. Karakterizira ga formiranje brojnih cista na jajnicima, što može uzrokovati različite simptome kao što su nepravilni menstrualni ciklusi, povećana razina muških hormona (androgena) u tijelu što može rezultirati aknama, povećanjem dlakavosti, i poteškoćama s konceptom. Pored toga, PCOS može biti povezan s drugim zdravstvenim problemima kao što su pretilost, inzulinska rezistencija, dijabetes tipa 2, poremećaji spavanja, depresija i anksioznost. Dijagnoza se obično postavlja na temelju simptoma, fizikalnog pregleda, ultrazvuka i laboratorijskih testova koji uključuju mjerenje razine hormona.'),
 (3, 8, 'Sinusitis', 'Sinusitis je medicinski termin koji se koristi za opisivanje upale sinusa, što su šupljine u kostima lica koje su povezane sa nosom. Ova upala može biti uzrokovana infekcijom, alergijama ili drugim faktorima.'),
-(6, 4, 'Labaratorijski nalaz ', 'Leukociti u urinu: 0-5 leukocita/uL\r\nEritrociti u urinu: 0-2 eritrocita/uL\r\nBakterije u urinu: Normalno nema bakterija\r\nGlukoza u urinu: Negativno\r\nProtein u urinu: 0-20 mg/dL\r\nKrv u urinu: Negativno\r\nNitriti u urinu: Negativno\r\nLeukociti u krvi: 4,000-11,000 leukocita/uL\r\nEritrociti u krvi: 4.2-5.4 miliona/mm^3\r\nHemoglobin u krvi: 13.5-17.5 g/dL');
+(6, 4, 'Labaratorijski nalaz ', 'Leukociti u urinu: 0-5 leukocita/uL\r\nEritrociti u urinu: 0-2 eritrocita/uL\r\nBakterije u urinu: Normalno nema bakterija\r\nGlukoza u urinu: Negativno\r\nProtein u urinu: 0-20 mg/dL\r\nKrv u urinu: Negativno\r\nNitriti u urinu: Negativno\r\nLeukociti u krvi: 4,000-11,000 leukocita/uL\r\nEritrociti u krvi: 4.2-5.4 miliona/mm^3\r\nHemoglobin u krvi: 13.5-17.5 g/dL'),
+(7, 9, 'Hipertenzija', 'Visok krvni pritisak');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `lekari`
+--
+
+CREATE TABLE `lekari` (
+  `id` int(11) NOT NULL,
+  `ime_i_prezime` varchar(30) NOT NULL,
+  `username` varchar(30) NOT NULL,
+  `password` varchar(30) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `lekari`
+--
+
+INSERT INTO `lekari` (`id`, `ime_i_prezime`, `username`, `password`) VALUES
+(1, 'dr Marko Jovanović', 'marko.jovanovic', 'lozinka1'),
+(2, 'dr Ana Petrović', 'ana.petrovic', 'lozinka12'),
+(3, 'dr Jovana Popović', 'jovana.popovic', 'lozinka123'),
+(4, 'dr Nikola Stojanović', 'nikola.stojanovic', 'lozinka1234'),
+(5, 'dr Milica Nikolić', 'milica.nikolic', 'lozinka12345'),
+(6, 'dr Stefan Đorđević', 'stefan.djurdjevic', 'lozinka54321'),
+(7, 'dr Aleksandar Simić', 'aleksandar.simic', 'lozinka4321'),
+(8, 'dr Filip Stevanović', 'filip.stevanovic', 'lozinka321'),
+(9, 'dr Ivana Lukić', 'ivana.lukic', 'lozinka21'),
+(10, 'dr Marija Kovačević', 'marija.kovacevic', 'lozinka'),
+(11, 'dr Luka Radovanović', 'luka.radovanovic', 'lozinka0');
 
 -- --------------------------------------------------------
 
@@ -102,7 +133,8 @@ INSERT INTO `recepti` (`id`, `br_kartona`, `br_knjizice`, `lek`, `nacin_upotrebe
 (3, 8, 2147483647, 'Amoksicilin ', 'Na 8h po jednu tabletu'),
 (4, 11, 2147483647, 'Ibuprofen 200mg', ' Uzeti jednu tabletu svakih 8 sati sa hranom.'),
 (5, 3, 2147483647, 'Loratadin 10mg', 'Uzeti jednu tabletu dnevno.'),
-(6, 13, 2147483647, 'Metformin 500mg', 'Uzeti jednu tabletu dva puta dnevno sa obrokom za kontrolu nivoa šećera u krvi.\r\n\r\n');
+(6, 13, 2147483647, 'Metformin 500mg', 'Uzeti jednu tabletu dva puta dnevno sa obrokom za kontrolu nivoa šećera u krvi.\r\n\r\n'),
+(7, 9, 2147483647, 'Enalapril', '1 uvece');
 
 -- --------------------------------------------------------
 
@@ -127,8 +159,7 @@ INSERT INTO `zakazani_termini` (`id`, `br_kartona`, `ime_i_prezime`, `datum_vrem
 (10, 4, 'Dejan Petrović', '2024-05-16 18:15:00'),
 (11, 8, 'Nikola Đorđević', '2024-05-16 15:15:00'),
 (12, 9, 'Milica Stojković', '2024-05-19 11:45:00'),
-(13, 10, 'Stefan Marković', '2024-05-21 16:45:00'),
-(15, 3, 'Ivana Novak', '2024-05-27 11:00:00');
+(13, 10, 'Stefan Marković', '2024-05-21 16:45:00');
 
 --
 -- Indexes for dumped tables
@@ -140,6 +171,12 @@ INSERT INTO `zakazani_termini` (`id`, `br_kartona`, `ime_i_prezime`, `datum_vrem
 ALTER TABLE `dijagnoze`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `br_kartona` (`br_kartona`);
+
+--
+-- Indexes for table `lekari`
+--
+ALTER TABLE `lekari`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `pacijenti`
@@ -169,7 +206,13 @@ ALTER TABLE `zakazani_termini`
 -- AUTO_INCREMENT for table `dijagnoze`
 --
 ALTER TABLE `dijagnoze`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT for table `lekari`
+--
+ALTER TABLE `lekari`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `pacijenti`
@@ -181,7 +224,7 @@ ALTER TABLE `pacijenti`
 -- AUTO_INCREMENT for table `recepti`
 --
 ALTER TABLE `recepti`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `zakazani_termini`

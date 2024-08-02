@@ -1,5 +1,5 @@
 <?php
-
+// baza parametri
 
 $host = "localhost";
 $username = "root";
